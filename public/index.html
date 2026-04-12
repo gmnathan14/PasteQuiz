@@ -21,31 +21,53 @@
     }
     html,body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;font-weight:400;min-height:100vh;line-height:1.5}
     body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;opacity:0.4}
+
+    /* ── SCREENS ── */
     .screen{display:none;min-height:100vh;padding:0 24px 100px}.screen.active{display:block}
     .container{max-width:680px;margin:0 auto}
+
+    /* ── NAV ── */
     nav{display:flex;align-items:center;justify-content:space-between;padding:28px 0 24px;margin-bottom:40px}
     .nav-logo{font-size:0.8rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent);cursor:pointer;text-shadow:var(--accent-glow);user-select:none}
     .nav-logo span{color:var(--muted);font-weight:400}
     .nav-tag{font-size:0.65rem;color:var(--muted);letter-spacing:0.1em;border:1px solid var(--border);border-radius:20px;padding:4px 12px}
     .home-btn{font-size:0.72rem;color:var(--muted);background:none;border:1px solid var(--border);border-radius:var(--radius);padding:7px 16px;cursor:pointer;letter-spacing:0.04em;transition:all .15s;font-family:inherit}
     .home-btn:hover{color:var(--text);border-color:var(--text)}
-    #screen-home{padding:0 32px 100px}
-    .home-nav-wrap{max-width:1140px;margin:0 auto}
-    .home-cols{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:1fr 400px;gap:44px;align-items:start}
-    @media(max-width:860px){.home-cols{grid-template-columns:1fr;gap:0}#screen-home{padding:0 20px 80px}}
-    .hero{margin-bottom:32px;animation:fadeUp .5s ease both}
-    .hero-eyebrow{font-size:0.68rem;font-weight:500;color:var(--accent);letter-spacing:0.22em;text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:10px}
+
+    /* ── HOME SCREEN — single centered column ── */
+    #screen-home{padding:0 24px 100px}
+    .home-wrap{max-width:680px;margin:0 auto}
+
+    /* hero */
+    .hero{margin-bottom:28px;animation:fadeUp .5s ease both}
+    .hero-eyebrow{font-size:0.68rem;font-weight:500;color:var(--accent);letter-spacing:0.22em;text-transform:uppercase;margin-bottom:18px;display:flex;align-items:center;gap:10px}
     .hero-eyebrow::before{content:'';display:inline-block;width:24px;height:1px;background:var(--accent);opacity:0.6}
-    .hero-title{font-size:clamp(2rem,4.5vw,3rem);font-weight:700;letter-spacing:-0.03em;color:#fff;line-height:1.08;margin-bottom:16px}
+    .hero-title{font-size:clamp(2rem,4.5vw,2.8rem);font-weight:700;letter-spacing:-0.03em;color:#fff;line-height:1.08;margin-bottom:14px}
     .hero-title em{font-style:normal;color:var(--accent);text-shadow:var(--accent-glow)}
-    .hero-sub{font-size:0.9rem;color:var(--muted);line-height:1.7;font-weight:300}
-    .how-strip{display:flex;border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;margin-bottom:32px;animation:fadeUp .45s .05s ease both}
-    .how-step{flex:1;padding:13px 13px;display:flex;align-items:flex-start;gap:9px;border-right:1px solid var(--border)}
+    .hero-sub{font-size:0.88rem;color:var(--muted);line-height:1.7;font-weight:300;max-width:520px}
+
+    /* how strip */
+    .how-strip{display:flex;border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;margin-bottom:24px;animation:fadeUp .45s .04s ease both}
+    .how-step{flex:1;padding:12px;display:flex;align-items:flex-start;gap:8px;border-right:1px solid var(--border)}
     .how-step:last-child{border-right:none}
-    .how-num{font-size:0.62rem;font-weight:700;color:var(--accent);letter-spacing:0.1em;background:var(--accent-dim);border-radius:20px;padding:2px 8px;flex-shrink:0;margin-top:2px}
-    .how-text{font-size:0.76rem;color:var(--muted);font-weight:300;line-height:1.45}
+    .how-num{font-size:0.6rem;font-weight:700;color:var(--accent);letter-spacing:0.1em;background:var(--accent-dim);border-radius:20px;padding:2px 7px;flex-shrink:0;margin-top:2px}
+    .how-text{font-size:0.74rem;color:var(--muted);font-weight:300;line-height:1.45}
     .how-text strong{color:var(--text);font-weight:500;display:block;margin-bottom:2px}
-    .field{margin-bottom:16px;animation:fadeUp .45s .08s ease both}
+
+    /* home stats bar — shows if history exists */
+    .home-stats-bar{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:16px;animation:fadeUp .45s .04s ease both}
+    .sstat-box{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius-lg);padding:12px 8px;text-align:center}
+    .sstat-val{font-size:1.3rem;font-weight:700;color:var(--text);letter-spacing:-0.02em}
+    .sstat-lbl{font-size:0.58rem;font-weight:500;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;margin-top:2px}
+
+    /* weak topics bar — shows cross-session weak spots */
+    .weak-topics-bar{background:var(--panel);border:1px solid rgba(239,68,68,0.2);border-left:2px solid var(--wrong);border-radius:0 var(--radius-lg) var(--radius-lg) 0;padding:12px 16px;margin-bottom:16px;animation:fadeUp .45s .05s ease both;display:none}
+    .weak-topics-label{font-size:0.62rem;font-weight:600;color:var(--wrong);letter-spacing:0.14em;text-transform:uppercase;margin-bottom:8px}
+    .weak-topics-list{display:flex;gap:6px;flex-wrap:wrap}
+    .weak-topic-chip{font-size:0.72rem;padding:4px 10px;border-radius:20px;background:var(--wrong-dim);border:1px solid rgba(239,68,68,0.2);color:var(--text)}
+
+    /* notes field */
+    .field{margin-bottom:14px;animation:fadeUp .45s .07s ease both}
     .field-label{font-size:0.68rem;font-weight:500;color:var(--muted);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:10px;display:block}
     .notes-field-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
     .upload-btn{display:inline-flex;align-items:center;gap:6px;padding:5px 13px;background:transparent;border:1px solid var(--border);border-radius:20px;color:var(--muted);font-family:inherit;font-size:0.7rem;font-weight:500;cursor:pointer;transition:all .15s}
@@ -53,9 +75,62 @@
     .upload-btn svg{width:12px;height:12px;flex-shrink:0}
     .upload-status{font-size:0.7rem;color:var(--correct);margin-top:6px;display:none}
     .upload-status.show{display:block}.upload-status.err{color:var(--wrong)}
-    textarea{width:100%;min-height:210px;background:var(--panel);border:1px solid var(--border);border-radius:var(--radius-lg);padding:16px 18px;color:var(--text);font-family:inherit;font-size:0.9rem;font-weight:300;line-height:1.7;resize:vertical;outline:none;transition:border-color .2s,box-shadow .2s}
+    textarea{width:100%;min-height:180px;background:var(--panel);border:1px solid var(--border);border-radius:var(--radius-lg);padding:16px 18px;color:var(--text);font-family:inherit;font-size:0.9rem;font-weight:300;line-height:1.7;resize:vertical;outline:none;transition:border-color .2s,box-shadow .2s}
     textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(76,201,240,0.07)}
     textarea::placeholder{color:var(--border)}
+
+    /* subject chips — INLINE, optional, not pressuring */
+    .subject-row{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px;animation:fadeUp .45s .09s ease both}
+    .subject-row-label{font-size:0.62rem;font-weight:500;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px}
+    .subj-chip{display:inline-flex;align-items:center;gap:5px;padding:6px 14px;background:transparent;border:1px solid var(--border);border-radius:20px;color:var(--muted);font-family:inherit;font-size:0.74rem;font-weight:500;cursor:pointer;transition:all .15s;white-space:nowrap}
+    .subj-chip:hover{border-color:rgba(76,201,240,0.4);color:var(--text);background:var(--accent-dim)}
+    .subj-chip.active{background:var(--accent-dim);border-color:var(--accent);color:var(--accent)}
+    .subj-chip-icon{font-size:0.85rem}
+
+    /* settings row — 2 columns */
+    .settings-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px;animation:fadeUp .45s .1s ease both}
+    .settings-card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius-lg);padding:14px 16px}
+    .settings-card .field-label{margin-bottom:10px}
+    .tabs,.diff-tabs{display:flex;gap:5px}
+    .tab,.diff-tab{flex:1;padding:7px 6px;background:transparent;border:1px solid var(--border);border-radius:6px;color:var(--muted);font-size:0.75rem;font-weight:500;cursor:pointer;text-align:center;transition:all .15s;font-family:inherit}
+    .tab:hover,.diff-tab:hover{color:var(--text);border-color:rgba(255,255,255,0.2)}
+    .tab.selected,.diff-tab.selected{background:var(--accent-dim);border-color:var(--accent);color:var(--accent)}
+
+    /* question type — full width, 4 equal tabs, properly centered */
+    .qtype-card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius-lg);padding:14px 16px;margin-bottom:10px;animation:fadeUp .45s .11s ease both}
+    .qtype-card .field-label{margin-bottom:10px}
+    .qtype-tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:5px}
+    .qtype-tab{padding:8px 4px;background:transparent;border:1px solid var(--border);border-radius:6px;color:var(--muted);font-size:0.73rem;font-weight:500;cursor:pointer;text-align:center;transition:all .15s;font-family:inherit;white-space:nowrap}
+    .qtype-tab:hover{color:var(--text);border-color:rgba(255,255,255,0.2)}
+    .qtype-tab.selected{background:var(--accent-dim);border-color:var(--accent);color:var(--accent)}
+
+    /* toggles */
+    .toggles-card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius-lg);padding:2px 0;margin-bottom:14px;animation:fadeUp .45s .12s ease both}
+    .toggle-row{display:flex;align-items:center;gap:12px;cursor:pointer;padding:12px 16px;border-bottom:1px solid var(--border);transition:background .1s}
+    .toggle-row:last-child{border-bottom:none}
+    .toggle-row:hover{background:rgba(255,255,255,0.02)}
+    .toggle{width:34px;height:18px;background:var(--border);border-radius:10px;position:relative;transition:background .2s;flex-shrink:0}
+    .toggle.on{background:var(--accent)}
+    .toggle::after{content:'';position:absolute;width:12px;height:12px;background:#fff;border-radius:50%;top:3px;left:3px;transition:left .2s;box-shadow:0 1px 3px rgba(0,0,0,0.3)}
+    .toggle.on::after{left:19px}
+    .toggle-label{font-size:0.82rem;color:var(--muted);user-select:none}
+    .toggle-label strong{color:var(--text);font-weight:500}
+
+    /* generate button */
+    .btn-primary{width:100%;padding:14px;background:var(--accent);color:#0a0d10;border:none;border-radius:var(--radius-lg);font-family:inherit;font-weight:700;font-size:0.85rem;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;transition:opacity .15s,box-shadow .15s,transform .1s;animation:fadeUp .45s .13s ease both}
+    .btn-primary:hover:not(:disabled){opacity:0.9;box-shadow:0 4px 28px rgba(76,201,240,0.35);transform:translateY(-1px)}
+    .btn-primary:disabled{opacity:0.25;cursor:not-allowed}
+    .btn-outline{padding:11px 20px;background:transparent;border:1px solid var(--border);color:var(--muted);border-radius:var(--radius);font-family:inherit;font-size:0.8rem;font-weight:500;letter-spacing:0.04em;cursor:pointer;transition:all .15s}
+    .btn-outline:hover{border-color:var(--text);color:var(--text)}
+    .btn-outline.accent{border-color:rgba(76,201,240,0.4);color:var(--accent)}
+    .btn-outline.accent:hover{background:var(--accent-dim);border-color:var(--accent);box-shadow:var(--accent-glow)}
+    .btn-outline.warn{border-color:rgba(250,204,21,0.3);color:var(--warning)}
+    .btn-outline.warn:hover{background:var(--warning-dim)}
+    .btn-outline:disabled{opacity:0.3;cursor:not-allowed}
+    .error-msg{background:var(--wrong-dim);border:1px solid rgba(239,68,68,0.2);border-radius:var(--radius);padding:12px 16px;color:var(--wrong);font-size:0.8rem;margin-top:10px;display:none}
+    .error-msg.show{display:block}
+
+    /* recent quizzes */
     .recent-quizzes{margin-top:20px;padding-top:20px;border-top:1px solid var(--border)}
     .recent-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
     .recent-title{font-size:0.68rem;font-weight:500;color:var(--muted);letter-spacing:0.12em;text-transform:uppercase}
@@ -70,53 +145,8 @@
     .recent-snippet{font-size:0.76rem;color:var(--muted);font-weight:300;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
     .recent-date{font-size:0.63rem;color:var(--border);margin-top:2px}
     .recent-arrow{font-size:0.8rem;color:var(--border)}
-    .sidebar{display:flex;flex-direction:column;gap:12px;position:sticky;top:24px;animation:fadeUp .45s .06s ease both}
-    .stats-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-    .sstat-box{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius-lg);padding:12px 8px;text-align:center}
-    .sstat-val{font-size:1.3rem;font-weight:700;color:var(--text);letter-spacing:-0.02em}
-    .sstat-lbl{font-size:0.58rem;font-weight:500;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;margin-top:2px}
-    .subject-card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius-lg);padding:14px 16px}
-    .subject-card .field-label{margin-bottom:10px}
-    .subject-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
-    .subj-btn{padding:9px 4px;background:transparent;border:1px solid var(--border);border-radius:6px;color:var(--muted);font-family:inherit;font-size:0.72rem;font-weight:500;cursor:pointer;text-align:center;transition:all .15s;line-height:1.3}
-    .subj-btn:hover{border-color:rgba(76,201,240,0.4);color:var(--text);background:var(--accent-dim)}
-    .subj-btn.active{background:var(--accent-dim);border-color:var(--accent);color:var(--accent)}
-    .subj-icon{display:block;font-size:1rem;margin-bottom:3px}
-    .settings-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-    .settings-card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius-lg);padding:14px 16px}
-    .settings-card .field-label{margin-bottom:10px}
-    .tabs,.diff-tabs{display:flex;gap:5px}
-    .tab,.diff-tab{flex:1;padding:7px 6px;background:transparent;border:1px solid var(--border);border-radius:6px;color:var(--muted);font-size:0.75rem;font-weight:500;cursor:pointer;text-align:center;transition:all .15s;font-family:inherit}
-    .tab:hover,.diff-tab:hover{color:var(--text);border-color:rgba(255,255,255,0.2)}
-    .tab.selected,.diff-tab.selected{background:var(--accent-dim);border-color:var(--accent);color:var(--accent)}
-    .qtype-card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius-lg);padding:14px 16px}
-    .qtype-card .field-label{margin-bottom:10px}
-    .qtype-tabs{display:flex;gap:5px;flex-wrap:wrap}
-    .qtype-tab{flex:1;min-width:58px;padding:7px 4px;background:transparent;border:1px solid var(--border);border-radius:6px;color:var(--muted);font-size:0.7rem;font-weight:500;cursor:pointer;text-align:center;transition:all .15s;font-family:inherit}
-    .qtype-tab:hover{color:var(--text);border-color:rgba(255,255,255,0.2)}
-    .qtype-tab.selected{background:var(--accent-dim);border-color:var(--accent);color:var(--accent)}
-    .toggles-card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius-lg);padding:2px 0}
-    .toggle-row{display:flex;align-items:center;gap:12px;cursor:pointer;padding:12px 16px;border-bottom:1px solid var(--border);transition:background .1s}
-    .toggle-row:last-child{border-bottom:none}
-    .toggle-row:hover{background:rgba(255,255,255,0.02)}
-    .toggle{width:34px;height:18px;background:var(--border);border-radius:10px;position:relative;transition:background .2s;flex-shrink:0}
-    .toggle.on{background:var(--accent)}
-    .toggle::after{content:'';position:absolute;width:12px;height:12px;background:#fff;border-radius:50%;top:3px;left:3px;transition:left .2s;box-shadow:0 1px 3px rgba(0,0,0,0.3)}
-    .toggle.on::after{left:19px}
-    .toggle-label{font-size:0.82rem;color:var(--muted);user-select:none}
-    .toggle-label strong{color:var(--text);font-weight:500}
-    .btn-primary{width:100%;padding:14px;background:var(--accent);color:#0a0d10;border:none;border-radius:var(--radius-lg);font-family:inherit;font-weight:700;font-size:0.85rem;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;transition:opacity .15s,box-shadow .15s,transform .1s}
-    .btn-primary:hover:not(:disabled){opacity:0.9;box-shadow:0 4px 28px rgba(76,201,240,0.35);transform:translateY(-1px)}
-    .btn-primary:disabled{opacity:0.25;cursor:not-allowed}
-    .btn-outline{padding:11px 20px;background:transparent;border:1px solid var(--border);color:var(--muted);border-radius:var(--radius);font-family:inherit;font-size:0.8rem;font-weight:500;letter-spacing:0.04em;cursor:pointer;transition:all .15s}
-    .btn-outline:hover{border-color:var(--text);color:var(--text)}
-    .btn-outline.accent{border-color:rgba(76,201,240,0.4);color:var(--accent)}
-    .btn-outline.accent:hover{background:var(--accent-dim);border-color:var(--accent);box-shadow:var(--accent-glow)}
-    .btn-outline.warn{border-color:rgba(250,204,21,0.3);color:var(--warning)}
-    .btn-outline.warn:hover{background:var(--warning-dim)}
-    .btn-outline:disabled{opacity:0.3;cursor:not-allowed}
-    .error-msg{background:var(--wrong-dim);border:1px solid rgba(239,68,68,0.2);border-radius:var(--radius);padding:12px 16px;color:var(--wrong);font-size:0.8rem;margin-top:10px;display:none}
-    .error-msg.show{display:block}
+
+    /* ── QUIZ ── */
     #loader{display:none;text-align:center;padding:100px 0}#loader.show{display:block}
     .loader-ring{width:32px;height:32px;border:1.5px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin .75s linear infinite;margin:0 auto 20px}
     .loader-label{font-size:0.75rem;color:var(--muted);letter-spacing:0.1em;font-weight:300}
@@ -178,6 +208,8 @@
     .modifying-overlay .loader-ring{width:22px;height:22px;margin:0 auto 12px}.modifying-overlay .loader-label{font-size:0.72rem}
     .kb-hint{font-size:0.62rem;color:var(--border);letter-spacing:0.08em;margin-top:14px;text-align:center;transition:color .3s}
     #quiz-body:hover .kb-hint{color:var(--muted)}
+
+    /* ── RESULTS ── */
     .results-hero{text-align:center;padding:48px 0 40px;animation:fadeUp .4s ease both}
     .results-score{font-size:5.5rem;font-weight:700;color:var(--accent);text-shadow:0 0 48px rgba(76,201,240,0.4);line-height:1;margin-bottom:6px;letter-spacing:-0.03em}
     .results-sublabel{font-size:0.68rem;font-weight:500;color:var(--muted);letter-spacing:0.18em;text-transform:uppercase;margin-bottom:20px}
@@ -186,6 +218,11 @@
     .stat-box{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius-lg);padding:18px 10px;text-align:center}
     .stat-val{font-size:1.6rem;font-weight:700;color:var(--text);margin-bottom:4px;letter-spacing:-0.02em}
     .stat-lbl{font-size:0.6rem;font-weight:500;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase}
+
+    /* smart retry order callout */
+    .smart-retry-note{font-size:0.72rem;color:var(--muted);margin-top:6px;text-align:center;font-weight:300}
+    .smart-retry-note span{color:var(--accent)}
+
     .concept-breakdown{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px;margin-bottom:20px;animation:fadeUp .4s .1s ease both}
     .concept-breakdown-title{font-size:0.65rem;font-weight:600;color:var(--muted);letter-spacing:0.16em;text-transform:uppercase;margin-bottom:16px}
     .concept-item{display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--border)}
@@ -208,6 +245,8 @@
     .harder-retry-row{display:flex;align-items:center;gap:14px;margin-top:14px;padding:14px 18px;background:var(--panel);border:1px solid var(--border);border-radius:var(--radius-lg);cursor:pointer;animation:fadeUp .4s .2s ease both}
     .harder-retry-row:hover{border-color:rgba(255,255,255,0.1)}
     .harder-retry-row .toggle-label{font-size:0.85rem;color:var(--muted)}
+
+    /* ── REVIEW ── */
     .review-list{margin-top:8px}
     .review-item{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px;margin-bottom:10px;animation:fadeUp .3s ease both}
     .review-q-num{font-size:0.62rem;font-weight:600;color:var(--muted);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:10px}
@@ -219,6 +258,8 @@
     .review-answers{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:10px}
     .review-ans{font-size:0.75rem;font-weight:500}.review-ans.yours{color:var(--muted)}.review-ans.correct-a{color:var(--correct)}.review-ans.wrong-a{color:var(--wrong)}
     .review-expl{font-size:0.84rem;color:var(--muted);line-height:1.6;border-left:2px solid var(--border);padding-left:14px;font-weight:300}
+
+    /* ── AI TUTOR ── */
     .tutor-panel{background:var(--panel);border:1px solid rgba(76,201,240,0.2);border-radius:var(--radius-lg);margin-top:20px;overflow:hidden;animation:fadeUp .35s .25s ease both}
     .tutor-header{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;border-bottom:1px solid var(--border);cursor:pointer;transition:background .15s}
     .tutor-header:hover{background:rgba(255,255,255,0.02)}
@@ -242,6 +283,8 @@
     .tutor-suggestions{display:flex;gap:6px;flex-wrap:wrap;padding:10px 18px 2px}
     .tutor-sug{padding:5px 12px;background:transparent;border:1px solid var(--border);border-radius:20px;color:var(--muted);font-family:inherit;font-size:0.7rem;cursor:pointer;transition:all .15s;margin-bottom:8px}
     .tutor-sug:hover{border-color:var(--accent);color:var(--accent)}
+
+    /* ── HISTORY ── */
     .history-empty{text-align:center;padding:80px 0;color:var(--muted)}
     .history-empty-icon{font-size:2.5rem;margin-bottom:16px;opacity:0.3}
     .history-empty-text{font-size:0.9rem;font-weight:300;line-height:1.7}
@@ -265,6 +308,15 @@
     .hsummary-box{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius-lg);padding:14px 10px;text-align:center}
     .hsummary-val{font-size:1.4rem;font-weight:700;color:var(--text);margin-bottom:2px;letter-spacing:-0.02em}
     .hsummary-lbl{font-size:0.58rem;font-weight:500;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase}
+
+    /* persistent weak topics in history */
+    .history-weak-section{background:var(--panel);border:1px solid rgba(239,68,68,0.2);border-left:2px solid var(--wrong);border-radius:0 var(--radius-lg) var(--radius-lg) 0;padding:16px 18px;margin-bottom:24px;animation:fadeUp .35s .05s ease both}
+    .history-weak-title{font-size:0.62rem;font-weight:600;color:var(--wrong);letter-spacing:0.14em;text-transform:uppercase;margin-bottom:10px}
+    .history-weak-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px}
+    .history-weak-item{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:8px 10px;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius)}
+    .history-weak-name{font-size:0.78rem;color:var(--text);flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .history-weak-pct{font-size:0.72rem;font-weight:700;color:var(--wrong);flex-shrink:0}
+
     .hdetail-hero{padding:32px 0 28px;animation:fadeUp .35s ease both}
     .hdetail-score{font-size:4rem;font-weight:700;letter-spacing:-0.03em;line-height:1;margin-bottom:6px}
     .hdetail-stats{display:flex;gap:20px;flex-wrap:wrap;margin-top:12px}
@@ -275,105 +327,123 @@
     .hdetail-notes-block.expanded::after{display:none}
     .hdetail-section-title{font-size:0.65rem;font-weight:600;color:var(--muted);letter-spacing:0.16em;text-transform:uppercase;margin-bottom:14px}
     .hdetail-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:24px;animation:fadeUp .35s .1s ease both}
+
     @keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
     @keyframes fadeDown{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}
     @keyframes spin{to{transform:rotate(360deg)}}
   </style>
 </head>
 <body>
-<!-- HOME -->
+
+<!-- ══════════ HOME ══════════ -->
 <div class="screen active" id="screen-home">
-  <div class="home-nav-wrap">
+  <div class="home-wrap">
     <nav>
       <div class="nav-logo">Paste<span>Quiz</span></div>
       <div style="display:flex;align-items:center;gap:10px">
         <button class="home-btn" onclick="showHistoryScreen()">⊞ History</button>
-        <span class="nav-tag">v6</span>
+        <span class="nav-tag">v7</span>
       </div>
     </nav>
-  </div>
-  <div class="home-cols">
-    <div class="home-left">
-      <div class="hero">
-        <div class="hero-eyebrow">Adaptive Study Tool</div>
-        <h1 class="hero-title">Paste notes.<br>Get tested.<br><em>Get better.</em></h1>
-        <p class="hero-sub">Quiz adapts to your weaknesses. Tracks your confidence. Shows where you really stand.</p>
-      </div>
-      <div class="how-strip">
-        <div class="how-step"><span class="how-num">01</span><div class="how-text"><strong>Paste or upload</strong>Lecture notes, PDFs, textbook excerpts</div></div>
-        <div class="how-step"><span class="how-num">02</span><div class="how-text"><strong>Customise</strong>Pick subject, difficulty, question type</div></div>
-        <div class="how-step"><span class="how-num">03</span><div class="how-text"><strong>Quiz &amp; review</strong>Get feedback, retry weak spots, chat with AI tutor</div></div>
-      </div>
-      <div class="field">
-        <div class="notes-field-header">
-          <label class="field-label" style="margin-bottom:0">Your Notes</label>
-          <label class="upload-btn" for="file-upload-input">
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 10V3M5 6l3-3 3 3"/><path d="M3 11v1a2 2 0 002 2h6a2 2 0 002-2v-1"/></svg>
-            Upload file
-          </label>
-        </div>
-        <input type="file" id="file-upload-input" accept=".txt,.md,.pdf" style="display:none" onchange="handleFileUpload(this)"/>
-        <textarea id="notes-input" placeholder="Paste lecture notes, textbook paragraphs, study guides… or upload a .txt / .pdf above"></textarea>
-        <div class="upload-status" id="upload-status"></div>
-      </div>
-      <div id="recent-quizzes-section"></div>
+
+    <!-- cross-session weak topics — shown if history has patterns -->
+    <div class="weak-topics-bar" id="weak-topics-bar">
+      <div class="weak-topics-label">⚠ Persistent weak spots across sessions</div>
+      <div class="weak-topics-list" id="weak-topics-list"></div>
     </div>
-    <div class="sidebar">
-      <div class="stats-strip" id="home-stats-strip"></div>
-      <div class="subject-card">
-        <label class="field-label">Quick Start — Subject</label>
-        <div class="subject-grid">
-          <button class="subj-btn" data-diff="medium" data-qtype="mc" onclick="applySubject(this)"><span class="subj-icon">🔢</span>Math</button>
-          <button class="subj-btn" data-diff="medium" data-qtype="mixed" onclick="applySubject(this)"><span class="subj-icon">🧬</span>Biology</button>
-          <button class="subj-btn" data-diff="medium" data-qtype="mixed" onclick="applySubject(this)"><span class="subj-icon">⚗️</span>Chemistry</button>
-          <button class="subj-btn" data-diff="medium" data-qtype="mixed" onclick="applySubject(this)"><span class="subj-icon">📜</span>History</button>
-          <button class="subj-btn" data-diff="hard" data-qtype="short" onclick="applySubject(this)"><span class="subj-icon">⚖️</span>Law</button>
-          <button class="subj-btn" data-diff="medium" data-qtype="mc" onclick="applySubject(this)"><span class="subj-icon">💻</span>CS</button>
-        </div>
-      </div>
-      <div class="settings-grid">
-        <div class="settings-card">
-          <label class="field-label">Questions</label>
-          <div class="tabs">
-            <div class="tab selected" data-len="5" onclick="selectLen(5)">5</div>
-            <div class="tab" data-len="10" onclick="selectLen(10)">10</div>
-            <div class="tab" data-len="15" onclick="selectLen(15)">15</div>
-          </div>
-        </div>
-        <div class="settings-card">
-          <label class="field-label">Difficulty</label>
-          <div class="diff-tabs">
-            <div class="diff-tab" data-diff="easy" onclick="selectDiff('easy')">Easy</div>
-            <div class="diff-tab selected" data-diff="medium" onclick="selectDiff('medium')">Mid</div>
-            <div class="diff-tab" data-diff="hard" onclick="selectDiff('hard')">Hard</div>
-          </div>
-        </div>
-      </div>
-      <div class="qtype-card">
-        <label class="field-label">Question Type</label>
-        <div class="qtype-tabs">
-          <div class="qtype-tab selected" data-qtype="mixed" onclick="selectQtype('mixed')">Mixed</div>
-          <div class="qtype-tab" data-qtype="mc" onclick="selectQtype('mc')">Multiple Choice</div>
-          <div class="qtype-tab" data-qtype="tf" onclick="selectQtype('tf')">True / False</div>
-          <div class="qtype-tab" data-qtype="short" onclick="selectQtype('short')">Free Response</div>
-        </div>
-      </div>
-      <div class="toggles-card">
-        <div class="toggle-row" onclick="toggleSetting('timedMode')">
-          <div class="toggle on" id="toggle-timed"></div>
-          <span class="toggle-label"><strong>Timed mode</strong> — countdown per question</span>
-        </div>
-        <div class="toggle-row" onclick="toggleSetting('enhance')">
-          <div class="toggle" id="toggle-enhance"></div>
-          <span class="toggle-label"><strong>Improve my notes first</strong> — AI cleans up input</span>
-        </div>
-      </div>
-      <button class="btn-primary" id="start-btn" onclick="startQuiz()">Generate Quiz →</button>
-      <div class="error-msg" id="home-error"></div>
+
+    <!-- home stats -->
+    <div class="home-stats-bar" id="home-stats-strip"></div>
+
+    <div class="hero">
+      <div class="hero-eyebrow">Adaptive Study Tool</div>
+      <h1 class="hero-title">Paste notes.<br>Get tested.<br><em>Get better.</em></h1>
+      <p class="hero-sub">Quiz adapts to your weaknesses. Tracks your confidence. Shows where you really stand.</p>
     </div>
+
+    <div class="how-strip">
+      <div class="how-step"><span class="how-num">01</span><div class="how-text"><strong>Paste or upload</strong>Lecture notes, PDFs, textbook excerpts</div></div>
+      <div class="how-step"><span class="how-num">02</span><div class="how-text"><strong>Customise</strong>Pick difficulty &amp; question type</div></div>
+      <div class="how-step"><span class="how-num">03</span><div class="how-text"><strong>Quiz &amp; review</strong>Get feedback, retry weak spots, chat with AI tutor</div></div>
+    </div>
+
+    <!-- notes input -->
+    <div class="field">
+      <div class="notes-field-header">
+        <label class="field-label" style="margin-bottom:0">Your Notes</label>
+        <label class="upload-btn" for="file-upload-input">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 10V3M5 6l3-3 3 3"/><path d="M3 11v1a2 2 0 002 2h6a2 2 0 002-2v-1"/></svg>
+          Upload file
+        </label>
+      </div>
+      <input type="file" id="file-upload-input" accept=".txt,.md,.pdf" style="display:none" onchange="handleFileUpload(this)"/>
+      <textarea id="notes-input" placeholder="Paste lecture notes, textbook paragraphs, study guides… or upload a .txt / .pdf above"></textarea>
+      <div class="upload-status" id="upload-status"></div>
+    </div>
+
+    <!-- subject chips — optional quick-start, not mandatory -->
+    <div style="animation:fadeUp .45s .09s ease both">
+      <div class="subject-row-label" style="font-size:0.62rem;font-weight:500;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px">Quick start — optional</div>
+      <div class="subject-row">
+        <button class="subj-chip" data-diff="medium" data-qtype="mc" onclick="applySubject(this)"><span class="subj-chip-icon">🔢</span>Math</button>
+        <button class="subj-chip" data-diff="medium" data-qtype="mixed" onclick="applySubject(this)"><span class="subj-chip-icon">🧬</span>Biology</button>
+        <button class="subj-chip" data-diff="medium" data-qtype="mixed" onclick="applySubject(this)"><span class="subj-chip-icon">⚗️</span>Chemistry</button>
+        <button class="subj-chip" data-diff="medium" data-qtype="mixed" onclick="applySubject(this)"><span class="subj-chip-icon">📜</span>History</button>
+        <button class="subj-chip" data-diff="hard" data-qtype="short" onclick="applySubject(this)"><span class="subj-chip-icon">⚖️</span>Law</button>
+        <button class="subj-chip" data-diff="medium" data-qtype="mc" onclick="applySubject(this)"><span class="subj-chip-icon">💻</span>CS</button>
+      </div>
+    </div>
+
+    <!-- settings -->
+    <div class="settings-grid">
+      <div class="settings-card">
+        <label class="field-label">Questions</label>
+        <div class="tabs">
+          <div class="tab selected" data-len="5" onclick="selectLen(5)">5</div>
+          <div class="tab" data-len="10" onclick="selectLen(10)">10</div>
+          <div class="tab" data-len="15" onclick="selectLen(15)">15</div>
+        </div>
+      </div>
+      <div class="settings-card">
+        <label class="field-label">Difficulty</label>
+        <div class="diff-tabs">
+          <div class="diff-tab" data-diff="easy" onclick="selectDiff('easy')">Easy</div>
+          <div class="diff-tab selected" data-diff="medium" onclick="selectDiff('medium')">Mid</div>
+          <div class="diff-tab" data-diff="hard" onclick="selectDiff('hard')">Hard</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- question type — full width, 4 equal columns, properly centered -->
+    <div class="qtype-card">
+      <label class="field-label">Question Type</label>
+      <div class="qtype-tabs">
+        <div class="qtype-tab selected" data-qtype="mixed" onclick="selectQtype('mixed')">Mixed</div>
+        <div class="qtype-tab" data-qtype="mc" onclick="selectQtype('mc')">Multiple Choice</div>
+        <div class="qtype-tab" data-qtype="tf" onclick="selectQtype('tf')">True / False</div>
+        <div class="qtype-tab" data-qtype="short" onclick="selectQtype('short')">Free Response</div>
+      </div>
+    </div>
+
+    <div class="toggles-card">
+      <div class="toggle-row" onclick="toggleSetting('timedMode')">
+        <div class="toggle on" id="toggle-timed"></div>
+        <span class="toggle-label"><strong>Timed mode</strong> — countdown per question</span>
+      </div>
+      <div class="toggle-row" onclick="toggleSetting('enhance')">
+        <div class="toggle" id="toggle-enhance"></div>
+        <span class="toggle-label"><strong>Improve my notes first</strong> — AI cleans up input</span>
+      </div>
+    </div>
+
+    <button class="btn-primary" id="start-btn" onclick="startQuiz()">Generate Quiz →</button>
+    <div class="error-msg" id="home-error"></div>
+
+    <div id="recent-quizzes-section"></div>
   </div>
 </div>
-<!-- QUIZ -->
+
+<!-- ══════════ QUIZ ══════════ -->
 <div class="screen" id="screen-quiz">
   <div class="container">
     <nav><div class="nav-logo" onclick="confirmHome()">Paste<span>Quiz</span></div><button class="home-btn" onclick="confirmHome()">← Home</button></nav>
@@ -418,7 +488,8 @@
     </div>
   </div>
 </div>
-<!-- RESULTS -->
+
+<!-- ══════════ RESULTS ══════════ -->
 <div class="screen" id="screen-results">
   <div class="container">
     <nav><div class="nav-logo" onclick="goHome()">Paste<span>Quiz</span></div><button class="home-btn" onclick="goHome()">← Home</button></nav>
@@ -445,6 +516,7 @@
       <button class="btn-outline accent" id="retry-missed-btn" onclick="retryMissed()">↺ Retry Missed</button>
       <button class="btn-outline" onclick="showReview()">≡ Review Answers</button>
     </div>
+    <div class="smart-retry-note" id="smart-retry-note" style="display:none">Retry order: <span>blind spots first → lucky guesses → wrong</span></div>
     <div class="harder-retry-row" onclick="toggleHarderRetry()"><div class="toggle" id="toggle-harder-retry"></div><span class="toggle-label">Make retry harder</span></div>
     <div class="results-actions-full"><button class="btn-outline" style="width:100%;margin-top:10px" onclick="goHome()">← New Quiz</button></div>
     <div class="tutor-panel" id="tutor-panel">
@@ -468,7 +540,8 @@
     </div>
   </div>
 </div>
-<!-- REVIEW -->
+
+<!-- ══════════ REVIEW ══════════ -->
 <div class="screen" id="screen-review">
   <div class="container">
     <nav><div class="nav-logo" onclick="goHome()">Paste<span>Quiz</span></div><button class="home-btn" onclick="backToResults()">← Results</button></nav>
@@ -476,12 +549,18 @@
     <div class="review-list" id="review-list"></div>
   </div>
 </div>
-<!-- HISTORY -->
+
+<!-- ══════════ HISTORY ══════════ -->
 <div class="screen" id="screen-history">
   <div class="container">
     <nav><div class="nav-logo" onclick="goHome()">Paste<span>Quiz</span></div><button class="home-btn" onclick="goHome()">← Home</button></nav>
     <div style="margin-bottom:28px;animation:fadeDown .4s ease both"><div class="hero-eyebrow" style="margin-bottom:10px">Saved Quizzes</div><h2 style="font-size:1.8rem;font-weight:700;color:#fff;letter-spacing:-.03em">Quiz History</h2></div>
     <div class="history-summary-bar" id="history-summary-bar"></div>
+    <!-- persistent weak topics across sessions -->
+    <div class="history-weak-section" id="history-weak-section" style="display:none">
+      <div class="history-weak-title">⚠ Persistent weak topics — consistently below 50% across sessions</div>
+      <div class="history-weak-grid" id="history-weak-grid"></div>
+    </div>
     <div class="history-filters">
       <button class="hfilter-btn active" data-filter="all" onclick="setHistoryFilter('all')">All</button>
       <button class="hfilter-btn" data-filter="easy" onclick="setHistoryFilter('easy')">Easy</button>
@@ -491,7 +570,8 @@
     <div class="history-list" id="history-list"></div>
   </div>
 </div>
-<!-- HISTORY DETAIL -->
+
+<!-- ══════════ HISTORY DETAIL ══════════ -->
 <div class="screen" id="screen-history-detail">
   <div class="container">
     <nav><div class="nav-logo" onclick="goHome()">Paste<span>Quiz</span></div><button class="home-btn" onclick="showHistoryScreen()">← History</button></nav>
@@ -509,6 +589,7 @@
     <div class="review-list" id="hdetail-review-list"></div>
   </div>
 </div>
+
 <script>
 const S={text:'',difficulty:'medium',quizLength:5,questionType:'mixed',timedMode:true,enhance:false,questions:[],currentQ:0,answers:[],skippedIndices:[],inSkipRound:false,skipQueuePos:0,streak:0,maxStreak:0,correctCount:0,timedOutCount:0,timerInterval:null,timeLeft:0,timerPaused:false,harderRetry:false,pendingConf:false,modifying:false};
 const TIMER={easy:30,medium:20,hard:15};
@@ -518,15 +599,40 @@ function selectDiff(d){S.difficulty=d;document.querySelectorAll('.diff-tab').for
 function selectQtype(qt){S.questionType=qt;document.querySelectorAll('.qtype-tab').forEach(t=>t.classList.toggle('selected',t.dataset.qtype===qt))}
 function toggleSetting(key){S[key]=!S[key];const ids={timedMode:'toggle-timed',enhance:'toggle-enhance'};if(ids[key])document.getElementById(ids[key]).classList.toggle('on',S[key]);if(key==='timedMode')document.getElementById('timer-row').style.display=S.timedMode?'':'none'}
 function toggleHarderRetry(){S.harderRetry=!S.harderRetry;document.getElementById('toggle-harder-retry').classList.toggle('on',S.harderRetry)}
-function applySubject(btn){document.querySelectorAll('.subj-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');selectDiff(btn.dataset.diff);selectQtype(btn.dataset.qtype)}
+function applySubject(btn){document.querySelectorAll('.subj-chip').forEach(b=>b.classList.remove('active'));btn.classList.add('active');selectDiff(btn.dataset.diff);selectQtype(btn.dataset.qtype)}
 
 function showScreen(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo(0,0)}
-function goHome(){clearTimer();S.text='';S.questions=[];S.answers=[];S.skippedIndices=[];S.inSkipRound=false;document.getElementById('start-btn').disabled=false;document.getElementById('notes-input').value='';renderRecentQuizzes();renderHomeStats();showScreen('screen-home')}
+function goHome(){clearTimer();S.text='';S.questions=[];S.answers=[];S.skippedIndices=[];S.inSkipRound=false;document.getElementById('start-btn').disabled=false;document.getElementById('notes-input').value='';renderRecentQuizzes();renderHomeStats();renderWeakTopicsBar();showScreen('screen-home')}
 function confirmHome(){if(confirm('Leave quiz? Progress will be lost.'))goHome()}
 function backToResults(){showScreen('screen-results')}
 function showReview(){renderReview();showScreen('screen-review')}
 
-function renderHomeStats(){const el=document.getElementById('home-stats-strip');const h=loadHistory();if(h.length===0){el.innerHTML='';return}const avg=Math.round(h.reduce((s,r)=>s+r.pct,0)/h.length);const best=Math.max(...h.map(r=>r.pct));el.innerHTML=`<div class="sstat-box"><div class="sstat-val">${h.length}</div><div class="sstat-lbl">Quizzes</div></div><div class="sstat-box"><div class="sstat-val">${avg}%</div><div class="sstat-lbl">Avg Score</div></div><div class="sstat-box"><div class="sstat-val">${best}%</div><div class="sstat-lbl">Best</div></div>`}
+function renderHomeStats(){
+  const el=document.getElementById('home-stats-strip');const h=loadHistory();
+  if(h.length===0){el.innerHTML='';return}
+  const avg=Math.round(h.reduce((s,r)=>s+r.pct,0)/h.length);const best=Math.max(...h.map(r=>r.pct));
+  el.innerHTML=`<div class="sstat-box"><div class="sstat-val">${h.length}</div><div class="sstat-lbl">Quizzes</div></div><div class="sstat-box"><div class="sstat-val">${avg}%</div><div class="sstat-lbl">Avg Score</div></div><div class="sstat-box"><div class="sstat-val">${best}%</div><div class="sstat-lbl">Best</div></div>`
+}
+
+// Cross-session weak topic map — aggregates topic performance across all saved quizzes
+function computeWeakTopics(){
+  const h=loadHistory();const topics={};
+  h.forEach(r=>{(r.answers||[]).forEach(a=>{if(!a.topic)return;if(!topics[a.topic])topics[a.topic]={correct:0,total:0,sessions:new Set()};topics[a.topic].total++;topics[a.topic].sessions.add(r.id);if(a.isCorrect)topics[a.topic].correct++})});
+  // Only include topics seen in 2+ sessions and consistently below 50%
+  return Object.entries(topics)
+    .filter(([,d])=>d.sessions.size>=2&&(d.correct/d.total)<0.5)
+    .map(([name,d])=>({name,pct:Math.round((d.correct/d.total)*100),sessions:d.sessions.size}))
+    .sort((a,b)=>a.pct-b.pct)
+    .slice(0,6);
+}
+
+function renderWeakTopicsBar(){
+  const bar=document.getElementById('weak-topics-bar');const list=document.getElementById('weak-topics-list');
+  const weak=computeWeakTopics();
+  if(weak.length===0){bar.style.display='none';return}
+  bar.style.display='';list.innerHTML='';
+  weak.forEach(w=>{const chip=document.createElement('span');chip.className='weak-topic-chip';chip.textContent=`${w.name} (${w.pct}%)`;list.appendChild(chip)})
+}
 
 async function startQuiz(weaknessMode=false,weaknessQuestions=[]){
   const text=S.text||document.getElementById('notes-input').value.trim();
@@ -622,6 +728,7 @@ document.addEventListener('keydown',e=>{
   else if(e.key==='Enter'){const nb=document.getElementById('next-btn');if(nb&&nb.classList.contains('show'))nb.click()}
 });
 
+// ── RESULTS ──────────────────────────────────────────────────────────────────
 function showResults(){
   clearTimer();
   const total=S.answers.length,pct=total>0?Math.round((S.correctCount/total)*100):0;
@@ -643,9 +750,33 @@ function showResults(){
   else if(solid>=total*0.6)insight='✓ Strong signal: most of what you know, you know correctly.';
   else insight='Track your confidence next round to identify real gaps vs lucky guesses.';
   document.getElementById('conf-insight').textContent=insight;
+
+  // Smart retry: missed ordered by blind spots first, then lucky guesses, then plain wrong
+  const blindAnswers=S.answers.filter(a=>a.confidence==='confident'&&!a.isCorrect&&!a.timedOut);
+  const luckyWrong=S.answers.filter(a=>(a.confidence==='unsure'||a.confidence==='guess')&&!a.isCorrect&&!a.timedOut);
+  const plainWrong=S.answers.filter(a=>!a.isCorrect&&!a.timedOut&&a.confidence!=='confident'&&a.confidence!=='unsure'&&a.confidence!=='guess');
+  const timedOut=S.answers.filter(a=>a.timedOut);
   const missed=S.answers.filter(a=>!a.isCorrect||a.timedOut);
   const rb=document.getElementById('retry-missed-btn');rb.disabled=missed.length===0;rb.textContent=missed.length>0?`↺ Retry Missed (${missed.length})`:'✓ No misses!';
+  // Show smart retry note only when there are blind spots
+  const srn=document.getElementById('smart-retry-note');
+  srn.style.display=(blind>0&&missed.length>0)?'':'none';
+  // Store smart-ordered missed for retryMissed()
+  S._smartMissed=[...blindAnswers,...luckyWrong,...plainWrong,...timedOut];
+
   showScreen('screen-results');resetTutor();saveQuizToHistory();
+  // Proactive tutor: auto-open with specific observation if there are blind spots
+  if(blind>0){
+    setTimeout(()=>{
+      if(!tutorOpen){toggleTutor()}
+    },800);
+  }
+}
+
+// Retry missed in smart order (blind spots first)
+function retryMissed(){
+  const ordered=S._smartMissed&&S._smartMissed.length>0?S._smartMissed:S.answers.filter(a=>!a.isCorrect||a.timedOut);
+  startQuiz(true,ordered.map(a=>a.q));
 }
 
 function renderConceptBreakdown(){
@@ -655,7 +786,6 @@ function renderConceptBreakdown(){
   const list=document.getElementById('concept-list');list.innerHTML='';
   entries.forEach(([topic,d])=>{const pct=Math.round((d.correct/d.total)*100);const color=pct>=75?'var(--correct)':pct>=45?'var(--warning)':'var(--wrong)';list.innerHTML+=`<div class="concept-item"><span class="concept-name">${topic}</span><div class="concept-bar-wrap"><div class="concept-bar-fill" style="width:${pct}%;background:${color}"></div></div><span class="concept-pct" style="color:${color}">${pct}%</span></div>`});
 }
-function retryMissed(){startQuiz(true,S.answers.filter(a=>!a.isCorrect||a.timedOut).map(a=>a.q))}
 
 function renderReview(){
   const list=document.getElementById('review-list');list.innerHTML='';
@@ -675,7 +805,7 @@ function renderReview(){
   });
 }
 
-// HISTORY
+// ── HISTORY ──────────────────────────────────────────────────────────────────
 const HISTORY_KEY='pastequiz_history_v1';
 function saveQuizToHistory(){
   try{
@@ -686,13 +816,23 @@ function saveQuizToHistory(){
   }catch(e){console.warn('History save failed',e)}
 }
 function loadHistory(){try{return JSON.parse(localStorage.getItem(HISTORY_KEY)||'[]')}catch{return[]}}
-function deleteHistoryRecord(id,event){event.stopPropagation();if(!confirm('Delete this quiz session?'))return;const h=loadHistory().filter(r=>r.id!==id);localStorage.setItem(HISTORY_KEY,JSON.stringify(h));renderHistoryList(h);renderHistorySummary(h)}
+function deleteHistoryRecord(id,event){event.stopPropagation();if(!confirm('Delete this quiz session?'))return;const h=loadHistory().filter(r=>r.id!==id);localStorage.setItem(HISTORY_KEY,JSON.stringify(h));renderHistoryList(h);renderHistorySummary(h);renderHistoryWeakTopics(h)}
 function showSaveToast(){let t=document.getElementById('save-toast');if(!t){t=document.createElement('div');t.id='save-toast';t.style.cssText='position:fixed;bottom:28px;right:28px;background:var(--panel);border:1px solid var(--border);border-left:2px solid var(--correct);border-radius:8px;padding:10px 18px;font-size:0.78rem;color:var(--correct);font-weight:500;z-index:1000;opacity:0;transition:opacity .25s;pointer-events:none;';t.textContent='✓ Quiz saved to history';document.body.appendChild(t)}t.style.opacity='1';setTimeout(()=>{t.style.opacity='0'},2200)}
 
 let _historyFilter='all',_currentDetailRecord=null;
-function showHistoryScreen(){const h=loadHistory();_historyFilter='all';document.querySelectorAll('.hfilter-btn').forEach(b=>b.classList.toggle('active',b.dataset.filter==='all'));renderHistorySummary(h);renderHistoryList(h);showScreen('screen-history')}
+function showHistoryScreen(){const h=loadHistory();_historyFilter='all';document.querySelectorAll('.hfilter-btn').forEach(b=>b.classList.toggle('active',b.dataset.filter==='all'));renderHistorySummary(h);renderHistoryWeakTopics(h);renderHistoryList(h);showScreen('screen-history')}
 function setHistoryFilter(f){_historyFilter=f;document.querySelectorAll('.hfilter-btn').forEach(b=>b.classList.toggle('active',b.dataset.filter===f));const h=loadHistory();renderHistoryList(f==='all'?h:h.filter(r=>r.difficulty===f))}
 function renderHistorySummary(h){const el=document.getElementById('history-summary-bar');if(h.length===0){el.innerHTML='';return}const avg=Math.round(h.reduce((s,r)=>s+r.pct,0)/h.length),best=Math.max(...h.map(r=>r.pct));el.innerHTML=`<div class="hsummary-box"><div class="hsummary-val">${h.length}</div><div class="hsummary-lbl">Quizzes Taken</div></div><div class="hsummary-box"><div class="hsummary-val">${avg}%</div><div class="hsummary-lbl">Avg Score</div></div><div class="hsummary-box"><div class="hsummary-val">${best}%</div><div class="hsummary-lbl">Best Score</div></div>`}
+
+// Persistent weak topics across sessions — shown in history screen
+function renderHistoryWeakTopics(h){
+  const sec=document.getElementById('history-weak-section');const grid=document.getElementById('history-weak-grid');
+  const weak=computeWeakTopics();
+  if(weak.length===0){sec.style.display='none';return}
+  sec.style.display='';grid.innerHTML='';
+  weak.forEach(w=>{grid.innerHTML+=`<div class="history-weak-item"><span class="history-weak-name">${w.name}</span><span class="history-weak-pct">${w.pct}%</span></div>`})
+}
+
 function renderHistoryList(h){
   const el=document.getElementById('history-list');
   if(h.length===0){el.innerHTML=`<div class="history-empty"><div class="history-empty-icon">◎</div><div class="history-empty-text">No quizzes yet.<br>Complete a quiz and it'll appear here.</div></div>`;return}
@@ -742,7 +882,7 @@ function retakeFromHistory(){
   showScreen('screen-quiz');document.getElementById('loader').classList.remove('show');document.getElementById('quiz-body').style.display='block';renderQuestion();
 }
 
-// FILE UPLOAD
+// ── FILE UPLOAD ───────────────────────────────────────────────────────────────
 async function handleFileUpload(input){
   const file=input.files[0];if(!file)return;
   const statusEl=document.getElementById('upload-status');statusEl.className='upload-status show';statusEl.textContent='Reading file…';
@@ -765,7 +905,7 @@ async function extractPdfText(file){
   return fullText.trim();
 }
 
-// RECENT QUIZZES
+// ── RECENT QUIZZES ────────────────────────────────────────────────────────────
 function renderRecentQuizzes(){
   const el=document.getElementById('recent-quizzes-section');const history=loadHistory();
   if(history.length===0){el.innerHTML='';return}
@@ -781,7 +921,7 @@ function renderRecentQuizzes(){
   });
 }
 
-// AI TUTOR — streaming
+// ── AI TUTOR ──────────────────────────────────────────────────────────────────
 let tutorMessages=[],tutorOpen=false,tutorInitialized=false,tutorStreaming=false;
 
 function toggleTutor(){tutorOpen=!tutorOpen;document.getElementById('tutor-body').classList.toggle('open',tutorOpen);document.getElementById('tutor-toggle-icon').classList.toggle('open',tutorOpen);if(tutorOpen&&!tutorInitialized)initTutor()}
@@ -789,15 +929,26 @@ function toggleTutor(){tutorOpen=!tutorOpen;document.getElementById('tutor-body'
 function initTutor(){
   tutorInitialized=true;tutorMessages=[];
   const total=S.answers.length,missed=S.answers.filter(a=>!a.isCorrect&&!a.skipped),pct=total>0?Math.round((S.correctCount/total)*100):0;
+  const blind=S.answers.filter(a=>a.confidence==='confident'&&!a.isCorrect);
   const missedSummary=missed.map(a=>`- "${a.q.question}" (correct: ${a.q.answer})`).join('\n');
   const systemCtx=`You are a warm, concise AI tutor helping a student review a quiz they just completed.\n\nQuiz: ${S.correctCount}/${total} correct (${pct}%). Difficulty: ${S.difficulty}.\n${missed.length>0?`Questions missed:\n${missedSummary}`:'They got everything correct!'}\n${S.text?`\nStudy material (first 800 chars):\n${S.text.slice(0,800)}`:''}\n\nBe encouraging but honest. Keep responses concise — 2-4 sentences. Don't dump everything at once; let the student lead.`;
   tutorMessages.push({role:'system',content:systemCtx});
-  const greeting=missed.length>0?`Quiz done — ${S.correctCount}/${total}! You missed ${missed.length} question${missed.length>1?'s':''}. Ask me about any of them and I'll break it down, or just ask whatever's on your mind.`:`Perfect score — ${S.correctCount}/${total}! Ask me anything about the material to go deeper on any concept.`;
+
+  // Proactive opening: specific observation about blind spots if any, otherwise standard greeting
+  let greeting;
+  if(blind.length>0){
+    const blindTopics=[...new Set(blind.map(a=>a.q.topic).filter(Boolean))];
+    const topicStr=blindTopics.length>0?` on ${blindTopics.slice(0,2).join(' and ')}`:' — topics you thought you knew';
+    greeting=`You got ${blind.length} question${blind.length>1?'s':''} wrong while feeling confident${topicStr}. These are your real blind spots. Want me to break down why?`;
+  }else if(missed.length>0){
+    greeting=`Quiz done — ${S.correctCount}/${total}! You missed ${missed.length} question${missed.length>1?'s':''}. Ask me about any of them and I'll break it down.`;
+  }else{
+    greeting=`Perfect score — ${S.correctCount}/${total}! Ask me anything about the material to go deeper on any concept.`;
+  }
   appendTutorMsg('ai',greeting);
 }
 
 function appendTutorMsg(role,text){const messages=document.getElementById('tutor-messages');const div=document.createElement('div');div.className='tutor-msg '+role;div.textContent=text;messages.appendChild(div);messages.scrollTop=messages.scrollHeight;return div}
-
 function sendTutorSuggestion(btn){const text=btn.textContent;document.getElementById('tutor-suggestions').style.display='none';document.getElementById('tutor-input').value=text;sendTutorMessage()}
 
 async function sendTutorMessage(){
@@ -830,10 +981,11 @@ async function sendTutorMessage(){
 
 function resetTutor(){tutorMessages=[];tutorOpen=false;tutorInitialized=false;tutorStreaming=false;document.getElementById('tutor-body').classList.remove('open');document.getElementById('tutor-toggle-icon').classList.remove('open');document.getElementById('tutor-messages').innerHTML='';document.getElementById('tutor-suggestions').style.display=''}
 
-// INIT
+// ── INIT ──────────────────────────────────────────────────────────────────────
 document.getElementById('timer-row').style.display=S.timedMode?'':'none';
 renderRecentQuizzes();
 renderHomeStats();
+renderWeakTopicsBar();
 </script>
 </body>
 </html>
