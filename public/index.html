@@ -331,20 +331,310 @@
     @keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
     @keyframes fadeDown{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}
     @keyframes spin{to{transform:rotate(360deg)}}
+
+     /* Login Screen */
+    .login-wrap {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+}
+
+.login-panel {
+  width: 420px;
+  padding: 28px;
+  border-radius: 16px;
+  background: rgba(20, 20, 20, 0.9);
+  border: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.login-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.login-subtitle {
+  font-size: 12px;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.login-body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+#login-username {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(0,0,0,0.3);
+  color: white;
+  outline: none;
+}
+
+#login-username:focus {
+  border-color: rgba(255,255,255,0.25);
+}
+
+.login-footnote {
+  font-size: 11px;
+  color: var(--muted);
+  opacity: 0.8;
+}
+
+.login-wrap {
+  background: radial-gradient(
+    circle at top,
+    rgba(255,255,255,0.04),
+    transparent 60%
+  );
+}
+
+.btn-primary {
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+}
+
+.btn-primary:active {
+  transform: translateY(1px);
+  opacity: 0.9;
+}
+
+#login-username {
+  transition: border 0.15s ease, transform 0.15s ease;
+}
+
+#login-username:focus {
+  transform: translateY(-1px);
+  outline: none;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.login-panel {
+  animation: fadeUp 0.35s ease both;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.user-pill {
+  display: flex;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  backdrop-filter: blur(8px);
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.user-pill:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.09);
+}
+
+.user-pill::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #4ade80;
+  margin-right: 8px;
+}
+.user-dropdown {
+  position: relative;
+}
+
+.user-menu {
+  position: absolute;
+  top: 42px;
+  right: 0;
+  width: 160px;
+  background: rgba(20, 20, 20, 0.95);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  padding: 6px;
+  backdrop-filter: blur(10px);
+  z-index: 999;
+}
+
+.user-menu-item {
+  padding: 10px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.8);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.user-menu-item:hover {
+  background: rgba(255,255,255,0.06);
+}
+
+.user-menu-item.danger {
+  color: #ff6b6b;
+}
+
+.user-menu-item.danger:hover {
+  background: rgba(255, 107, 107, 0.1);
+}
+
+.user-menu {
+  position: absolute;
+  top: 42px;
+  left: 0;
+  width: 160px;
+  background: rgba(20, 20, 20, 0.95);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  padding: 6px;
+  backdrop-filter: blur(10px);
+  z-index: 999;
+
+  /* animation */
+  transform-origin: top;
+  transform: scale(0.95);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.15s ease;
+}
+
+.user-menu.open {
+  transform: scale(1);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.user-menu.hidden {
+  display: block;
+}
+
+.user-pill {
+  transition: transform 0.15s ease, background 0.15s ease, opacity 0.15s ease;
+  cursor: pointer;
+}
+
+.user-pill:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.09);
+}
+
+.user-pill:active {
+  transform: translateY(1px);
+  opacity: 0.85;
+}
+
+.btn-secondary {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.15);
+  background: transparent;
+  color: rgba(255,255,255,0.75);
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease, opacity 0.15s ease;
+}
+
+.btn-secondary:hover {
+  transform: translateY(-1px);
+  background: rgba(255,255,255,0.06);
+}
+
+.btn-secondary:active {
+  transform: translateY(1px);
+  opacity: 0.85;
+}
+
   </style>
 </head>
 <body>
+  <main id="app">
+
+<!-- ══════════ LOGIN ══════════ -->
+<section class="screen active" id="screen-login">
+  <div class="login-wrap">
+
+    <div class="login-panel">
+
+      <div class="login-header">
+        <div class="nav-logo">Paste<span>Quiz</span></div>
+        <div class="login-subtitle">Adaptive Study Tool</div>
+      </div>
+
+      <div class="login-body">
+        <label class="field-label">Username</label>
+
+        <input
+          id="login-username"
+          type="text"
+          placeholder="Enter your username"
+          autocomplete="off"
+        />
+
+        <button class="btn-primary" onclick="login()">
+          Continue →
+        </button>
+        
+        <button class="btn-secondary" onclick="continueAsGuest()">
+        Continue as Guest
+        </button>
+
+        <div class="login-footnote">
+          Progress is saved locally on this device
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
 
 <!-- ══════════ HOME ══════════ -->
-<div class="screen active" id="screen-home">
+<section class="screen" id="screen-home">
   <div class="home-wrap">
     <nav>
-      <div class="nav-logo">Paste<span>Quiz</span></div>
-      <div style="display:flex;align-items:center;gap:10px">
-        <button class="home-btn" onclick="showHistoryScreen()">⊞ History</button>
-        <span class="nav-tag">v7</span>
+  <div style="display:flex;align-items:center;gap:12px">
+    <div class="nav-logo">Paste<span>Quiz</span></div>
+
+    <div class="user-dropdown">
+      <div id="user-display" class="user-pill" onclick="toggleUserMenu(event)"></div>
+
+      <div id="user-menu" class="user-menu hidden">
+        <div class="user-menu-item" onclick="openProfile()">Profile</div>
+        <div class="user-menu-item" onclick="openSettings()">Settings</div>
+        <div class="user-menu-item danger" onclick="logout()">Logout</div>
       </div>
-    </nav>
+    </div>
+  </div>
+
+  <div style="display:flex;align-items:center;gap:10px">
+    <button class="home-btn" onclick="showHistoryScreen()">⊞ History</button>
+    <span class="nav-tag">v7</span>
+  </div>
+</nav>
 
     <!-- cross-session weak topics — shown if history has patterns -->
     <div class="weak-topics-bar" id="weak-topics-bar">
@@ -441,10 +731,10 @@
 
     <div id="recent-quizzes-section"></div>
   </div>
-</div>
+</section>
 
 <!-- ══════════ QUIZ ══════════ -->
-<div class="screen" id="screen-quiz">
+<section class="screen" id="screen-quiz">
   <div class="container">
     <nav><div class="nav-logo" onclick="confirmHome()">Paste<span>Quiz</span></div><button class="home-btn" onclick="confirmHome()">← Home</button></nav>
     <div id="loader"><div class="loader-ring"></div><div class="loader-label" id="loader-label">generating quiz…</div></div>
@@ -487,10 +777,10 @@
       </div>
     </div>
   </div>
-</div>
+</section>
 
 <!-- ══════════ RESULTS ══════════ -->
-<div class="screen" id="screen-results">
+<section class="screen" id="screen-results">
   <div class="container">
     <nav><div class="nav-logo" onclick="goHome()">Paste<span>Quiz</span></div><button class="home-btn" onclick="goHome()">← Home</button></nav>
     <div class="results-hero">
@@ -539,19 +829,19 @@
       </div>
     </div>
   </div>
-</div>
+</section>
 
 <!-- ══════════ REVIEW ══════════ -->
-<div class="screen" id="screen-review">
+<section class="screen" id="screen-review">
   <div class="container">
     <nav><div class="nav-logo" onclick="goHome()">Paste<span>Quiz</span></div><button class="home-btn" onclick="backToResults()">← Results</button></nav>
     <div style="margin-bottom:28px;animation:fadeDown .4s ease both"><div class="hero-eyebrow" style="margin-bottom:10px">Review</div><h2 style="font-size:1.8rem;font-weight:700;color:#fff;letter-spacing:-.03em">Answer Review</h2></div>
     <div class="review-list" id="review-list"></div>
   </div>
-</div>
+</section>
 
 <!-- ══════════ HISTORY ══════════ -->
-<div class="screen" id="screen-history">
+<section class="screen" id="screen-history">
   <div class="container">
     <nav><div class="nav-logo" onclick="goHome()">Paste<span>Quiz</span></div><button class="home-btn" onclick="goHome()">← Home</button></nav>
     <div style="margin-bottom:28px;animation:fadeDown .4s ease both"><div class="hero-eyebrow" style="margin-bottom:10px">Saved Quizzes</div><h2 style="font-size:1.8rem;font-weight:700;color:#fff;letter-spacing:-.03em">Quiz History</h2></div>
@@ -569,10 +859,10 @@
     </div>
     <div class="history-list" id="history-list"></div>
   </div>
-</div>
+</section>
 
 <!-- ══════════ HISTORY DETAIL ══════════ -->
-<div class="screen" id="screen-history-detail">
+<section class="screen" id="screen-history-detail">
   <div class="container">
     <nav><div class="nav-logo" onclick="goHome()">Paste<span>Quiz</span></div><button class="home-btn" onclick="showHistoryScreen()">← History</button></nav>
     <div class="hdetail-hero">
@@ -588,11 +878,30 @@
     <div class="hdetail-section-title">Question Breakdown</div>
     <div class="review-list" id="hdetail-review-list"></div>
   </div>
-</div>
+</section>
 
 <script>
 const S={text:'',difficulty:'medium',quizLength:5,questionType:'mixed',timedMode:true,enhance:false,questions:[],currentQ:0,answers:[],skippedIndices:[],inSkipRound:false,skipQueuePos:0,streak:0,maxStreak:0,correctCount:0,timedOutCount:0,timerInterval:null,timeLeft:0,timerPaused:false,harderRetry:false,pendingConf:false,modifying:false};
 const TIMER={easy:30,medium:20,hard:15};
+
+function showScreen(screenId) {
+  document.querySelectorAll(".screen").forEach(screen => {
+    screen.classList.remove("active");
+  });
+
+  document.getElementById(screenId).classList.add("active");
+}
+
+function login() {
+  const username = document.getElementById("login-username").value.trim();
+
+  if (!username) return;
+
+  localStorage.setItem("currentUser", username);
+
+  updateUserDisplay();
+showScreen("screen-home");
+}
 
 function selectLen(n){S.quizLength=n;document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('selected',+t.dataset.len===n))}
 function selectDiff(d){S.difficulty=d;document.querySelectorAll('.diff-tab').forEach(t=>t.classList.toggle('selected',t.dataset.diff===d))}
@@ -986,6 +1295,93 @@ document.getElementById('timer-row').style.display=S.timedMode?'':'none';
 renderRecentQuizzes();
 renderHomeStats();
 renderWeakTopicsBar();
+
+window.onload = function () {
+  const user = localStorage.getItem("currentUser");
+
+  if (user) {
+    updateUserDisplay();
+    showScreen("screen-home");
+  } else {
+    showScreen("screen-login");
+  }
+};
+
+function logout() {
+  // remove user session
+  localStorage.removeItem("currentUser");
+
+  // optional: clear any cached app state
+  localStorage.removeItem("currentQuiz");
+  localStorage.removeItem("quizProgress");
+
+  // reset UI inputs (clean state)
+  document.getElementById("login-username").value = "";
+
+  const notes = document.getElementById("notes-input");
+  if (notes) notes.value = "";
+
+  // reset any toggles if they exist
+  const timed = document.getElementById("toggle-timed");
+  if (timed) timed.classList.add("on");
+
+  const enhance = document.getElementById("toggle-enhance");
+  if (enhance) enhance.classList.remove("on");
+
+  // return to login screen
+  showScreen("screen-login");
+}
+
+function updateUserDisplay() {
+  const user = localStorage.getItem("currentUser");
+  const display = document.getElementById("user-display");
+
+  if (!display) return;
+
+  if (user) {
+    display.textContent = user;
+  } else {
+    display.textContent = "";
+  }
+}
+
+function toggleUserMenu(e) {
+  e.stopPropagation();
+
+  const menu = document.getElementById("user-menu");
+
+  // toggle animation class
+  menu.classList.toggle("open");
+}
+
+// close when clicking outside
+document.addEventListener("click", function () {
+  const menu = document.getElementById("user-menu");
+  if (menu) menu.classList.remove("open");
+});
+
+// close menu when clicking outside
+document.addEventListener("click", function () {
+  const menu = document.getElementById("user-menu");
+  if (menu) menu.classList.add("hidden");
+});
+
+function openProfile() {
+  alert("Profile page coming soon");
+}
+
+function openSettings() {
+  alert("Settings page coming soon");
+}
+
+function continueAsGuest() {
+  localStorage.setItem("currentUser", "Guest");
+
+  updateUserDisplay();
+  showScreen("screen-home");
+}
+
 </script>
+  </main>
 </body>
 </html>
