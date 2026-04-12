@@ -11,7 +11,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const GROQ_API_KEY = process.env.GROQ_API_KEY;
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 const MIME = {
   ".html": "text/html",
   ".css": "text/css",
